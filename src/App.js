@@ -24,10 +24,11 @@ componentDidMount(){
 
 detectChange = (book,value) => {
   BooksAPI.update(book,value);
-  this.state.books.map(item => {
+  this.state.books.map(item =>{
     if(item.id === book.id){
       item.shelf = value;
     }
+    return "done";
   })
 
   this.setState({
@@ -40,7 +41,7 @@ detectChange = (book,value) => {
       <div className="app">
         <p>{this.state.text}</p>
         <Route exact path='/'render = {() => (<ListBooks viewBooks = {this.state.books} changeShelf = {this.detectChange}/>)}/>
-        <Route exact path='/search'component={SearchBooks}/>
+        <Route exact path='/search'render = {() => (<SearchBooks changeShelf = {this.detectChange}/>)}/>
       </div>
     )
   }
