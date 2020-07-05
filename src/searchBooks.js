@@ -14,7 +14,7 @@ class SearchBooks extends React.Component{
         this.setState({
             query: value.trim()
         })
-        console.log(value);
+        console.log("search Value",value);
         BooksAPI.search(value).then(searchedBooks => {
             this.setState({
                 searchedBooks
@@ -47,7 +47,7 @@ class SearchBooks extends React.Component{
                   </div>
                 </div>
                 <div className="search-books-results">
-                  {console.log(this.state.searchedBooks)}
+                  {console.log("books returned",this.state.searchedBooks)}
                   <ol className="books-grid">
                    {this.state.searchedBooks.map(book => <li>
     <div className="book">
@@ -56,8 +56,12 @@ class SearchBooks extends React.Component{
         <div className="book-shelf-changer">
         <select onChange = {
             (event) => {
-                console.log(book)
-            this.props.changeShelf(book,event.target.value)}
+                book.shelf=event.target.value;
+                console.log("searchJS onchange",book);
+
+            this.props.changeShelf(book,event.target.value);
+            // this.props.addBook(book);
+          }
             }>
             <option value="move" disabled>Move to...</option>
             <option value="currentlyReading">Currently Reading</option>

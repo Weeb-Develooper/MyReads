@@ -18,7 +18,7 @@ componentDidMount(){
   BooksAPI.getAll().then(books =>  {this.setState({
       books
   })
-  console.log(this.state.books)
+  console.log("books state in AppJs",this.state.books)
 }) 
 }
 
@@ -30,18 +30,27 @@ detectChange = (book,value) => {
     }
     return "done";
   })
-
   this.setState({
     shelf:value
   })
+}
+
+
+bookAdd = (book) => { 
+  let joined = [book]
+  this.setState((previousState) => ({
+    books: previousState.books.concat(book)
+  }))
+  console.log("book from search",book);
+
 }
 
   render() {
     return (
       <div className="app">
         <p>{this.state.text}</p>
-        <Route exact path='/'render = {() => (<ListBooks viewBooks = {this.state.books} changeShelf = {this.detectChange}/>)}/>
-        <Route exact path='/search'render = {() => (<SearchBooks changeShelf = {this.detectChange}/>)}/>
+        <Route exact path='/'render = {() => (<ListBooks viewBooks = {this.state.books} />)}/>
+        <Route exact path='/search'render = {() => (<SearchBooks changeShelf = {this.detectChange} addBook={this.bookAdd}/>)}/>
       </div>
     )
   }
