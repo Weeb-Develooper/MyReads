@@ -49,7 +49,7 @@ class SearchBooks extends React.Component{
                 <div className="search-books-results">
                   {console.log("books returned",this.state.searchedBooks)}
                   <ol className="books-grid">
-                   {this.state.searchedBooks.map(book => <li>
+                   {this.state.searchedBooks.map(book => <li key={book.title}>
     <div className="book">
     <div className="book-top">
         <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `${book.imageLinks.thumbnail}` }}></div>

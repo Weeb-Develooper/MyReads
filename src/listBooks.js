@@ -17,7 +17,7 @@ class ListBooks extends React.Component{
                       <ol className="books-grid">
                       { this.props.viewBooks.filter(book=> book.shelf.toLowerCase() === 'currentlyreading').map(book => 
     
-                            <li>
+                            <li key={book.title}>
                             <div className="book">
                             <div className="book-top">
                                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `${book.imageLinks.thumbnail}` }}></div>
@@ -48,7 +48,7 @@ class ListBooks extends React.Component{
                       <ol className="books-grid">
                       { this.props.viewBooks.filter(book=> book.shelf.toLowerCase() === 'wanttoread').map(book => 
     
-                        <li>
+                        <li key={book.title}>
                             <div className="book">
                             <div className="book-top">
                                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `${book.imageLinks.thumbnail}` }}></div>
@@ -80,7 +80,7 @@ class ListBooks extends React.Component{
                       <ol className="books-grid">
                       { this.props.viewBooks.filter(book=> book.shelf.toLowerCase() === 'read').map(book => 
     
-                            <li>
+                            <li key={book.title}>
                             <div className="book">
                             <div className="book-top">
                                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `${book.imageLinks.thumbnail}` }}></div>

@@ -37,7 +37,6 @@ detectChange = (book,value) => {
 
 
 bookAdd = (book) => { 
-  let joined = [book]
   this.setState((previousState) => ({
     books: previousState.books.concat(book)
   }))
