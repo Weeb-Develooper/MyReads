@@ -60,7 +60,7 @@ class SearchBooks extends React.Component{
                 console.log("searchJS onchange",book);
 
             this.props.changeShelf(book,event.target.value);
-            // this.props.addBook(book);
+            this.props.addBook(book);
           }
             }>
             <option value="move" disabled>Move to...</option>

@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 class ListBooks extends React.Component{
 
     render(){
-        console.log(this.props)
         return(
             <div className="list-books">
               <div className="list-books-title">

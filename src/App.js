@@ -18,7 +18,6 @@ componentDidMount(){
   BooksAPI.getAll().then(books =>  {this.setState({
       books
   })
-  console.log("books state in AppJs",this.state.books)
 }) 
 }
 
@@ -40,8 +39,6 @@ bookAdd = (book) => {
   this.setState((previousState) => ({
     books: previousState.books.concat(book)
   }))
-  console.log("book from search",book);
-
 }
 
   render() {
